@@ -13,6 +13,3 @@
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
-
-# Project exclude paths
-/bin/

@@ -8,9 +8,11 @@ services:
       - ./app:/symfony
     container_name: ${PROJECT_NAME}-nginx
     restart: always
+    depends_on:
+      - php-fpm
     ports:
       - "8000:80"
-
+    
   php-fpm:
     build:
       context: ./docker/php-fpm
@@ -19,14 +21,8 @@ services:
     container_name: ${PROJECT_NAME}-php-fpm
     depends_on:
       - mysql
-
-  php-cli:
-    build:
-      context: ./docker/php-cli
-    volumes:
-      - ./app:/symfony
-    command: sleep 10000
-    container_name: ${PROJECT_NAME}-php-cli
+    expose:
+      - "9000"
 
   mysql:
     image: mysql:8.0

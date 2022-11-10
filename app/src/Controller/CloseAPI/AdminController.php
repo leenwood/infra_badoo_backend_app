@@ -7,6 +7,7 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
+#[Rest\Route('/api')]
 class AdminController extends AbstractFOSRestController
 {
     /**
@@ -26,8 +27,6 @@ class AdminController extends AbstractFOSRestController
         } catch (\Throwable $e) {
             dd($e);
         }
-
-        $view->setHeader('Access-Control-Allow-Origin', '*');
         return $this->handleView($view);
     }
 }

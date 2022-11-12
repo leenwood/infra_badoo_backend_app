@@ -21,5 +21,17 @@ docker-compose up -d
 
 Разворачиваем симфони в докере
 ```bash 
-docker exec -it composer install
+docker exec -it urfu_moment-php-fpm composer install
+```
+
+Теперь можно зайти в браузер по ссылке localhost:8000 и увидеть окно привествия от симфони.
+
+Обновляем информацию о базе данных
+```bash
+docker exec -it urfu_moment-php-fpm php bin/console doctrine:migrations:migrate
+```
+
+Следом нужно создать пользователя для работы и подключения в реакт приложение
+```bash
+docker exec -it urfu_moment-php-fpm php bin/console user:create Nikita 123321 -a true
 ```

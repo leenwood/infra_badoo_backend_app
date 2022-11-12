@@ -35,3 +35,8 @@ docker exec -it urfu_moment-php-fpm php bin/console doctrine:migrations:migrate
 ```bash
 docker exec -it urfu_moment-php-fpm php bin/console user:create Nikita 123321 -a true
 ```
+
+Генерируем себе ключи 
+```bash
+docker exec -it urfu_moment-php-fpm php bin/console lexik:jwt:generate-keypair
+```
